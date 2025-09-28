@@ -1,10 +1,12 @@
-
 :root {
-    --cor-principal: #5d4037; /* Marrom/Café Escuro */
-    --cor-secundaria: #f4a261; /* Rosa Pêssego/Salmão para destaque */
+    --cor-primaria: #831a2c;
+    /* Marrom/Café Escuro */
+    --cor-secundaria: #dd9191;
+    /* Rosa Pêssego/Salmão para destaque */
     --cor-texto: #333;
-    --cor-fundo-claro: #fdf5e6; /* Creme Suave */
-    --cor-fundo-escuro: #ffffff;
+    --cor-fundo-claro: #e7b2bb;
+    /* Creme Suave */
+    --cor-fundo-escuro: #fdcbcb;
 }
 
 /* Reset básico para melhor consistência em navegadores */
@@ -15,28 +17,31 @@
 }
 
 body {
-    font-family: 'Georgia', serif; /* Fonte mais elegante */
+    font-family: 'Georgia', serif;
+    /* Fonte mais elegante */
     line-height: 1.6;
     color: var(--cor-texto);
     background-color: var(--cor-fundo-escuro);
 }
 
 .container {
-    width: 90%; /* Aumentamos um pouco o container */
+    width: 90%;
+    /* Aumentamos um pouco o container */
     max-width: 1100px;
     margin: auto;
-    overflow: hidden; 
+    overflow: hidden;
 }
 
 /* --- ESTILO DO CABEÇALHO (HEADER) --- */
 header {
-    background: var(--cor-principal);
+    background: var(--cor-primaria);
     color: #ffffff;
     padding: 20px 0;
-    position: sticky; 
+    position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra suave */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Sombra suave */
 }
 
 header .container {
@@ -48,7 +53,8 @@ header .container {
 header h1 {
     margin: 0;
     font-size: 2em;
-    letter-spacing: 2px; /* Espaçamento para elegância */
+    letter-spacing: 2px;
+    /* Espaçamento para elegância */
 }
 
 header nav a {
@@ -68,7 +74,8 @@ header nav a:hover {
 .hero {
     background: var(--cor-fundo-claro);
     color: var(--cor-texto);
-    min-height: 500px; /* Aumentamos a altura */
+    min-height: 500px;
+    /* Aumentamos a altura */
     display: flex;
     align-items: center;
     text-align: center;
@@ -78,7 +85,7 @@ header nav a:hover {
 .hero h2 {
     font-size: 3.5em;
     margin-bottom: 10px;
-    color: var(--cor-principal);
+    color: var(--cor-primaria);
 }
 
 .hero p {
@@ -89,11 +96,12 @@ header nav a:hover {
 
 .content-section {
     padding: 80px 0;
-    text-align: center; /* Centralizamos o conteúdo das seções */
+    text-align: center;
+    /* Centralizamos o conteúdo das seções */
 }
 
 .content-section h3 {
-    color: var(--cor-principal);
+    color: var(--cor-primaria);
     margin-bottom: 30px;
     font-size: 2.2em;
 }
@@ -120,18 +128,20 @@ header nav a:hover {
 }
 
 .produto-card {
-    width: 300px; /* Largura fixa para cada produto */
+    width: 300px;
+    /* Largura fixa para cada produto */
     padding: 20px;
     border: 1px solid #eee;
     border-radius: 8px;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s;
 }
 
 .produto-card:hover {
-    transform: translateY(-5px); /* Efeito suave ao passar o mouse */
-    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    transform: translateY(-5px);
+    /* Efeito suave ao passar o mouse */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
 .produto-card h4 {
@@ -143,22 +153,25 @@ header nav a:hover {
 .btn {
     display: inline-block;
     background: var(--cor-secundaria);
-    color: var(--cor-principal); /* Cor de texto em marrom escuro */
+    color: var(--cor-primaria);
+    /* Cor de texto em marrom escuro */
     font-weight: bold;
     padding: 12px 25px;
     text-decoration: none;
-    border-radius: 30px; /* Botão arredondado */
+    border-radius: 30px;
+    /* Botão arredondado */
     transition: background-color 0.3s;
     border: 2px solid var(--cor-secundaria);
 }
 
 .btn:hover {
-    background: #e69554; /* Um tom um pouco mais escuro ao passar o mouse */
+    background: #e69554;
+    /* Um tom um pouco mais escuro ao passar o mouse */
 }
 
 /* --- ESTILO DO RODAPÉ (FOOTER) --- */
 footer {
-    background: var(--cor-principal);
+    background: var(--cor-primaria);
     color: #ffffff;
     text-align: center;
     padding: 25px 0;
