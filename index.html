@@ -1,86 +1,361 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amani | Cosméticos Naturais e Beleza</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amani Cosméticos - Beleza Natural e Sustentável</title>
+<style>
+    /* Reset e Variáveis */
+    :root {
+        --primary: #b97a7a;
+        --secondary: #944747;
+        --light-bg: #fdf3f3;
+        --text-color: #444;
+        --shadow: rgba(185, 122, 122, 0.2);
+        --transition: 0.4s ease;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+        background: #fff8f8;
+        color: var(--text-color);
+        scroll-behavior: smooth;
+    }
+
+    /* Navbar */
+    header {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: var(--primary);
+        color: #fff;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+        transition: all var(--transition);
+    }
+
+    header.scrolled {
+        background: var(--secondary);
+        padding: 10px 0;
+    }
+
+    header .container {
+        max-width: 1200px;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+    }
+
+    header h1 {
+        font-family: 'Georgia', serif;
+        font-size: 2rem;
+    }
+
+    header nav {
+        display: flex;
+        gap: 20px;
+    }
+
+    header nav a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        padding: 6px 12px;
+        border-radius: 5px;
+        transition: background var(--transition);
+    }
+
+    header nav a:hover {
+        background: rgba(0,0,0,0.2);
+    }
+
+    /* Hero */
+    .hero {
+        height: 90vh;
+        background: url('https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #fff;
+        position: relative;
+        padding: 0 20px;
+    }
+
+    .hero::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(0,0,0,0.3);
+    }
+
+    .hero .hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 800px;
+    }
+
+    .hero h2 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        animation: fadeInUp 1s ease forwards;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+        animation: fadeInUp 1.2s ease forwards;
+    }
+
+    .hero .btn {
+        display: inline-block;
+        background: var(--secondary);
+        color: #fff;
+        padding: 12px 30px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all var(--transition);
+        animation: fadeInUp 1.4s ease forwards;
+    }
+
+    .hero .btn:hover {
+        background: var(--primary);
+        transform: translateY(-3px);
+    }
+
+    @keyframes fadeInUp {
+        0% { opacity: 0; transform: translateY(20px);}
+        100% { opacity: 1; transform: translateY(0);}
+    }
+
+    /* Sections */
+    section {
+        padding: 80px 20px;
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    .light-bg {
+        background: var(--light-bg);
+    }
+
+    section h3 {
+        color: var(--primary);
+        font-size: 2rem;
+        margin-bottom: 20px;
+        border-bottom: 3px solid var(--primary);
+        padding-bottom: 8px;
+    }
+
+    section p {
+        margin-bottom: 15px;
+        color: #555;
+    }
+
+    /* Produtos */
+    .produtos-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
+    }
+
+    .produto-card {
+        background: #fff;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px var(--shadow);
+        text-align: center;
+        transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .produto-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 25px var(--shadow);
+    }
+
+    .produto-card img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        margin-bottom: 15px;
+        transition: transform var(--transition);
+    }
+
+    .produto-card img:hover {
+        transform: scale(1.05);
+    }
+
+    .produto-card h4 {
+        color: var(--secondary);
+        margin-bottom: 10px;
+        font-size: 1.2rem;
+    }
+
+    .produto-card p {
+        font-size: 1rem;
+        color: #555;
+        min-height: 60px;
+    }
+
+    .produto-card .btn {
+        margin-top: 10px;
+        padding: 10px 20px;
+        background: var(--primary);
+        border-radius: 25px;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    .produto-card .btn:hover {
+        background: var(--secondary);
+        transform: translateY(-3px);
+    }
+
+    /* Footer */
+    footer {
+        background: var(--primary);
+        color: #fff;
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    footer .social-icons {
+        margin-top: 15px;
+    }
+
+    footer .social-icons a {
+        color: #fff;
+        margin: 0 10px;
+        font-size: 1.2rem;
+        text-decoration: none;
+        transition: transform var(--transition);
+    }
+
+    footer .social-icons a:hover {
+        transform: scale(1.2);
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+        header .container {
+            flex-direction: column;
+        }
+        header nav {
+            margin-top: 10px;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .hero h2 {
+            font-size: 2.2rem;
+        }
+        .hero p {
+            font-size: 1rem;
+        }
+    }
+
+</style>
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <h1>Amani</h1>
-            <nav>
-                <a href="#home">Início</a>
-                <a href="#produtos">Produtos</a> <a href="#sobre">Nossa Essência</a>
-                <a href="#contato">Contato</a>
-            </nav>
-        </div>
-    </header>
+<!-- Header -->
+<header id="header">
+    <div class="container">
+        <h1>Amani Cosméticos</h1>
+        <nav>
+            <a href="#home">Início</a>
+            <a href="#produtos">Produtos</a>
+            <a href="#sobre">Nossa Essência</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </div>
+</header>
 
-    <section id="home" class="hero">
-        <div class="container">
-            <h2>Amani: Sua Beleza, Nossa Paixão</h2>
-            <p>Descubra o poder dos cosméticos que nutrem, inspiram e transformam.</p>
-            <a href="#produtos" class="btn">Ver Nossos Destaques</a>
-        </div>
-    </section>
+<!-- Hero -->
+<section id="home" class="hero">
+    <div class="hero-content">
+        <h2>Amani: Sua Beleza, Nossa Paixão</h2>
+        <p>Descubra o poder dos cosméticos que nutrem, inspiram e transformam.</p>
+        <a href="#produtos" class="btn">Ver Nossos Destaques</a>
+    </div>
+</section>
 
-    <section id="produtos" class="content-section">
-        <div class="container">
-            <h3>Nossos Produtos de Destaque</h3>
-            <p>Conheça os itens que são a paixão dos nossos clientes. Qualidade, ingredientes naturais e resultados incríveis.</p>
-            
-            <div class="produtos-grid">
-                <div class="produto-card">
-                    <img src="placeholder-1.jpg" alt="Creme Facial" style="width: 100%; height: auto; border-radius: 5px;">
-                    <h4>Creme Hidratante Revitalizante</h4>
-                    <p>Fórmula leve com ácido hialurônico para hidratação profunda e duradoura.</p>
-                    <a href="#" class="btn" style="padding: 8px 15px;">Comprar</a>
-                </div>
+<!-- Produtos -->
+<section id="produtos">
+    <h3>Nossos Produtos de Destaque</h3>
+    <p>Qualidade, ingredientes naturais e resultados incríveis.</p>
 
-                <div class="produto-card">
-                    <img src="placeholder-2.jpg" alt="Sérum Noturno" style="width: 100%; height: auto; border-radius: 5px;">
-                    <h4>Sérum Renovador Noturno</h4>
-                    <p>Reparação celular enquanto você dorme. Acorde com a pele radiante.</p>
-                    <a href="#" class="btn" style="padding: 8px 15px;">Comprar</a>
-                </div>
-                
-                 <div class="produto-card">
-                    <img src="placeholder-3.jpg" alt="Máscara Capilar" style="width: 100%; height: auto; border-radius: 5px;">
-                    <h4>Máscara Capilar Nutritiva</h4>
-                    <p>Reconstrução intensa para cabelos danificados. Brilho e maciez garantidos.</p>
-                    <a href="#" class="btn" style="padding: 8px 15px;">Comprar</a>
-                </div>
-            </div>
-            <a href="#" class="btn" style="margin-top: 40px;">Ver Catálogo Completo</a>
-        </div>
-    </section>
+    <div class="produtos-grid">
+        <article class="produto-card">
+            <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=600&q=80" alt="Perfume em creme de Rosas Brancas" loading="lazy">
+            <h4>Perfume em Creme de Rosas Brancas</h4>
+            <p>Fragrância delicada e sofisticada, feita com extrato natural de rosas brancas. Longa duração.</p>
+            <a href="#" class="btn">Comprar</a>
+        </article>
 
-    <section id="sobre" class="content-section light-bg">
-        <div class="container">
-            <h3>Nossa Essência</h3>
-            <p>No Amani, acreditamos que a beleza deve ser uma fonte de bem-estar. Nossos cosméticos são desenvolvidos com **ingredientes puros**, respeito ao meio ambiente e a dedicação de quem ama o que faz.</p>
-            <p>Nossa missão é levar produtos de alta performance que harmonizam a beleza exterior com o cuidado interior.</p>
-        </div>
-    </section>
+        <article class="produto-card">
+            <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=600&q=80" alt="Creme para os pés de Rosas Brancas e Alecrim" loading="lazy">
+            <h4>Creme para os Pés de Rosas Brancas e Alecrim</h4>
+            <p>Hidratação intensa e refrescante. Alivia cansaço e ressecamento, com ação calmante e revitalizante.</p>
+            <a href="#" class="btn">Comprar</a>
+        </article>
 
-    <section id="contato" class="content-section">
-        <div class="container">
-            <h3>Fale com a Nossa Equipe</h3>
-            <p>Se você tem dúvidas sobre qual produto é ideal para sua pele ou cabelo, nossa equipe de especialistas está pronta para ajudar.</p>
-            <p><strong>WhatsApp:</strong> (XX) XXXX-XXXX</p>
-            <p><strong>E-mail:</strong> atendimento@amani.com</p>
-        </div>
-    </section>
+        <article class="produto-card">
+            <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=600&q=80" alt="Máscara Capilar Nutritiva" loading="lazy">
+            <h4>Máscara Capilar Nutritiva</h4>
+            <p>Reconstrução intensa para cabelos danificados. Brilho e maciez garantidos.</p>
+            <a href="#" class="btn">Comprar</a>
+        </article>
+    </div>
+</section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Amani Cosméticos. Todos os direitos reservados.</p>
-        </div>
-    </footer>
+<!-- Sobre -->
+<section id="sobre" class="light-bg">
+    <h3>Nossa Essência</h3>
+    <p>No Amani, acreditamos que a beleza deve ser uma fonte de bem-estar. Nossos cosméticos são desenvolvidos com ingredientes puros, respeito ao meio ambiente e dedicação de quem ama o que faz.</p>
+    <p>Nossa missão é levar produtos de alta performance que harmonizam a beleza exterior com o cuidado interior.</p>
+</section>
 
-    <script src="script.js"></script>
+<!-- Contato -->
+<section id="contato">
+    <h3>Fale com a Nossa Equipe</h3>
+    <p>Se você tem dúvidas sobre qual produto é ideal para sua pele ou cabelo, nossa equipe de especialistas está pronta para ajudar.</p>
+    <p><strong>WhatsApp:</strong> (XX) XXXX-XXXX</p>
+    <p><strong>E-mail:</strong> atendimento@amani.com</p>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2025 Amani Cosméticos. Todos os direitos reservados.</p>
+    <div class="social-icons">
+        <a href="#">&#x1F426;</a>
+        <a href="#">&#x1F4F1;</a>
+        <a href="#">&#x1F4F7;</a>
+    </div>
+</footer>
+
+<script>
+    // Navbar muda cor ao rolar
+    window.addEventListener('scroll', function() {
+        const header = document.getElementById('header');
+        if(window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+</script>
+
 </body>
 </html>
