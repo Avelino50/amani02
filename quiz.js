@@ -13,8 +13,7 @@ const questions = [
     answers: [
       { text: "Floral suave", product: "Perfume em Creme de Rosas Brancas" },
       { text: "Ervas refrescantes", product: "Creme para os Pés de Rosas e Alecrim" },
-      { text: "Neutro ou leve", product: "Creme Hidratante Revitalizante" },
-      { text: "Doce e nutritivo", product: "Máscara Capilar Nutritiva" }
+      { text: "Neutro ou leve", product: "Creme Hidratante Revitalizante "Doce e nutritivo", product: "Máscara Capilar Nutritiva" }
     ]
   },
   {
@@ -23,7 +22,6 @@ const questions = [
       { text: "Pele hidratada e radiante", product: "Creme Hidratante Revitalizante" },
       { text: "Perfume exclusivo", product: "Perfume em Creme de Rosas Brancas" },
       { text: "Relaxamento dos pés", product: "Creme para os Pés de Rosas e Alecrim" },
-      { text: "Cabelos fortes e brilhantes", product: "Máscara Capilar Nutritiva" }
     ]
   }
 ];
