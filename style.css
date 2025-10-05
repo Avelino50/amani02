@@ -1,12 +1,3 @@
-/* Variáveis */
-:root{
-    --primary:#f8d4d4;
-    --secondary:#7a2c2c;
-    --light-bg:#fff0f0;
-    --text-color:#444;
-    --shadow:rgba(122,44,44,0.2);
-    --transition:0.4s ease;
-}
 body {
   margin: 0;
   padding: 0;
